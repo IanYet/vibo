@@ -1,54 +1,30 @@
 
 class Vibo {
-    constructor () {
+    constructor() {
         // this.viboConfig = viboConfig
         this.pipe = []
     }
 
-    callback (context) {
+    callback(context) {
         console.log(context)
     }
-    use (middleware) {
+    use(middleware) {
         this.pipe.push(middleware)
     }
 
-    init (context) {
+    init(context) {
         let promise = Promise.resolve(context)
 
         this.pipe.forEach((middleware) => {
-            promise = this.nextPromise(promise, middleware)
+            promise = nextPromise(promise, middleware)
         })
     }
-
-    nextPromise (promise, middleWare) {
-        return promise.then((context) => middleWare(context))
-    }
 }
 
-const vibo = new Vibo()
+//私有方法
+const nextPromise = (promise, middleWare) => promise.then((context) => middleWare(context))
 
-const asyncAdd1 = (ctx) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            ctx++
-            console.log(ctx);
-            resolve(ctx)
-        }, 1000)
-    })
+//导出模块
+module.exports = {
+    Vibo,
 }
-
-const add1 = (ctx) => {
-    ctx++
-    console.log(ctx);
-    return ctx
-}
-const min1 = (ctx) => {
-    ctx--
-    console.log(ctx);
-    return ctx
-}
-
-vibo.use(add1)
-vibo.use(asyncAdd1)
-vibo.use(min1)
-vibo.init(2)
