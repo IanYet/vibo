@@ -1,13 +1,14 @@
 
 class Vibo {
-    constructor() {
-        // this.viboConfig = viboConfig
+    constructor(viboConfig) {
+        this.viboConfig = viboConfig
         this.pipe = []
     }
 
     callback(context) {
         console.log(context)
     }
+
     use(middleware) {
         this.pipe.push(middleware)
     }
@@ -18,13 +19,15 @@ class Vibo {
         this.pipe.forEach((middleware) => {
             promise = nextPromise(promise, middleware)
         })
+
+        promise.then((context) => this.callback(context)).catch((error) => console.error(error))
     }
 }
 
-//私有方法
+//private methods
 const nextPromise = (promise, middleWare) => promise.then((context) => middleWare(context))
 
-//导出模块
+//---------------
 module.exports = {
     Vibo,
 }
