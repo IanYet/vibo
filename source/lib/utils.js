@@ -7,9 +7,9 @@ const fs = require('fs')
  */
 const getFilePromise = (path) => new Promise((resolve, reject) => {
     fs.readFile(path, (err, data) => {
-        if(err){
+        if (err) {
             reject(err)
-        }else{
+        } else {
             resolve(data.toString())
         }
     })

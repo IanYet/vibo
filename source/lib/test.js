@@ -1,22 +1,10 @@
-
 const { Vibo } = require('./Vibo')
+const { DOCS_PATH } = require('../lib/constant')
+const { getFilePromise } = require('../lib/utils')
+const { markdownToHtml } = require('../middleware/markdownToHtml')
 
 const vibo = new Vibo({})
+const startPromise = getFilePromise(`${DOCS_PATH}vi-blog.md`)
 
-const addOne = ctx => ++ctx
-
-const asyncAddOne = ctx => new Promise((resolve, reject) => {
-    setTimeout(() => { 
-        resolve(++ctx)
-    }, 1000)
-})
-
-const errorWare = () => {
-    throw new Error('stop')
-}
-
-vibo.use(addOne)
-// vibo.use(errorWare)
-vibo.use(asyncAddOne)
-
-vibo.start(3)
+vibo.use(markdownToHtml)
+vibo.go(startPromise)

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/IanYet/vibo/issues"
   },
-  "homepage": "https://github.com/IanYet/vibo#readme"
+  "homepage": "https://github.com/IanYet/vibo#readme",
+  "dependencies": {
+    "marked": "^0.4.0"
+  }
 }

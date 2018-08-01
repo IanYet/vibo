@@ -1,4 +1,3 @@
-
 class Vibo {
     constructor(viboConfig) {
         this.viboConfig = viboConfig
@@ -9,12 +8,20 @@ class Vibo {
         console.log(context)
     }
 
+    /**
+     * add a middleware to be excuted
+     * @param {Function} middleware middleware funtion
+     */
     use(middleware) {
         this.pipe.push(middleware)
     }
 
-    start(context) {
-        let promise = Promise.resolve(context)
+    /**
+     * string or promise obj
+     * @param {String|Promise} start vibo middleware chain's start
+     */
+    go(start) {
+        let promise = typeof start === 'string' ? Promise.resolve(context) : start
 
         this.pipe.forEach((middleware) => {
             promise = nextPromise(promise, middleware)
