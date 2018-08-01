@@ -16,7 +16,7 @@ const errorWare = () => {
 }
 
 vibo.use(addOne)
-vibo.use(errorWare)
+// vibo.use(errorWare)
 vibo.use(asyncAddOne)
 
-vibo.init(3)
+vibo.start(3)

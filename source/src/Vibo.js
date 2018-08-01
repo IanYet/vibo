@@ -13,7 +13,7 @@ class Vibo {
         this.pipe.push(middleware)
     }
 
-    init(context) {
+    start(context) {
         let promise = Promise.resolve(context)
 
         this.pipe.forEach((middleware) => {
