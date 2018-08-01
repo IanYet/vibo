@@ -25,7 +25,7 @@ class Vibo {
 }
 
 //private methods
-const nextPromise = (promise, middleWare) => promise.then((context) => middleWare(context))
+const nextPromise = (promise, middleware) => promise.then((context) => middleware(context))
 
 //---------------
 module.exports = {
