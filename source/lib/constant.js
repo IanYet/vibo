@@ -4,7 +4,7 @@
 module.exports.ROOT_PATH = `${__dirname}/../../`
 
 //path: vibo/source/
-module.exports.CODE_PATH = `${__dirname}/../`
+module.exports.DIST_PATH = `${__dirname}/../dist/`
 
 //path: vibo/document/
 module.exports.DOCS_PATH = `${__dirname}/../../document/`
