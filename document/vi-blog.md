@@ -76,3 +76,10 @@ hexo是一个不错的解决方案。但是为什么不用hexo？理由如下
 - [github api](https://developer.github.com/v3/)
 - 用promise代替中间件
 
+### todo
+
+1. 记录md源文件的md5值，来确定每次编译的文件
+2. GitHub api
+3. init.js
+4. 写第一个主题
+5. 完善配置文件
