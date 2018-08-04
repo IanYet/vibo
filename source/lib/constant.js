@@ -1,10 +1,10 @@
-
+const path = require('path')
 //-----------------------path-----------------------//
 //path: vibo/
-module.exports.ROOT_PATH = `${__dirname}/../../`
+module.exports.ROOT_PATH = path.normalize(`${__dirname}/../../`)
 
-//path: vibo/source/
-module.exports.DIST_PATH = `${__dirname}/../dist/`
+//path: vibo/source/post/
+module.exports.POST_PATH = path.normalize(`${__dirname}/../post/`)
 
 //path: vibo/document/
-module.exports.DOCS_PATH = `${__dirname}/../../document/`
+module.exports.DOCS_PATH = path.normalize(`${__dirname}/../../document/`)

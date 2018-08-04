@@ -4,10 +4,6 @@ class Vibo {
         this.pipe = []
     }
 
-    callback(context) {
-        console.log(context)
-    }
-
     /**
      * add a middleware to be excuted
      * @param {Function} middleware middleware funtion
@@ -27,7 +23,7 @@ class Vibo {
             promise = nextPromise(promise, middleware)
         })
 
-        promise.then((context) => this.callback(context)).catch((error) => console.error(error))
+        return promise.then((context) => context).catch((error) => console.error(error))
     }
 }
 
