@@ -1,6 +1,8 @@
 const pt = require('path')
 const fs = require('fs')
 
+const { POST_DIR } = require('./constant')
+
 /**
  * return a promise with content string
  * @param {String} path path + filename + ext
@@ -20,16 +22,52 @@ const getFilePromise = (path) => new Promise((resolve, reject) => {
  * @param {String} path path + filename + ext
  * @param {String} context formatted text
  */
-const setFilePromise = (path, context) => new Promise((resolve, reject) => {
-    fs.writeFile(path, context, (err) => {
-        if (err) {
-            reject(err)
-        } else {
-            resolve(context)
+const setFilePromise = (path, context) => checkDir(path).then(() => 
+    new Promise((resolve, reject) => {
+        fs.writeFile(path, context, (err) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(context)
+            }
+        })
+    }
+))
+
+/**
+ * split the dirname from '/a/b/c/' to ['/a/' ,'/a/b/', '/a/b/c/']
+ * @param {String} dir original dir
+ * @param {[String]} dirArr []
+ */
+const checkDir = (dir, dirArr = []) => {
+    dirArr.unshift(pt.normalize(pt.parse(dir).dir + '/'))
+
+    if (dirArr[0] === POST_DIR) {
+        return makeDir(dirArr)
+    } else {
+        return checkDir(dirArr[0], dirArr)
+    }
+}
+
+/**
+ * dirArr created by func checkDir()
+ * @param {[String]} dirArr []
+ */
+const makeDir = (dirArr) => new Promise((resolve, reject) => {
+    fs.mkdir(dirArr[0], (err) => {
+        if((err && err.code === 'EEXIST') || !err){
+            dirArr.shift()
+            resolve(dirArr)
+        }else {
+            reject()
         }
     })
+}).then((dirArr) => {
+    if(dirArr.length === 0){
+        return
+    }
+    return makeDir(dirArr)
 })
-
 /**
  * return last half of post file
  * e.g. 2018/09/[name].html
@@ -43,9 +81,6 @@ const getHtmlPath = (path) => {
     return `${year}/${month.length === 2 ? month : '0' + month}/${htmlName}.html`
 }
 
-const dirExist = (path) => new Promise((resolve, reject) => {
-    
-})
 module.exports = {
     getFilePromise,
     setFilePromise,

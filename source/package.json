@@ -1,7 +1,7 @@
 {
   "name": "vibo",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "可扩展可定制的github.io静态markdown博客生成工具",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +19,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "marked": "^0.4.0"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {}
 }
