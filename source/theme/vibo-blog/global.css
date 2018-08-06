@@ -1,0 +1,78 @@
+html{
+    font-size: 14px;
+
+    /* global var */
+    /* font */
+    --light-font-size: calc(6rem/7);
+    --light-line-height: calc(10rem/7);
+    --normal-font-size: 1rem;
+    --normal-line-height: calc(11rem/7);
+    --bold-font-size: calc(12rem/7);
+    --bold-line-height: calc(16rem/7);
+    --bolder-font-size: calc(15rem/7);
+    --bolder-line-height: calc(19rem/7);
+
+    --normal-font-weight: 400;
+    --bold-font-weight: 500;
+    --semibold-font-weight: 600;
+
+    --light-font-color: #697b8c;
+    --normal-font-color: #314659;
+    --bold-font-color: #0d1a26;
+
+    /* color */
+    --pure-color: #ffffff;
+    --light-color: #fdfeff;
+    --thin-color: #eef4ff;
+    --middle-color: #3f72af;
+    --thick-color: #112d4e;
+}
+
+body{
+    /* reset */
+    margin: 0;
+
+    font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: var(--normal-font-size);
+    color: var(--normal-font-color);
+    font-weight: var(--normal-font-weight);
+    line-height: var(--normal-line-height);
+}
+
+p{
+    padding: 1rem 0;
+}
+
+h1,h2,h3{
+    font-weight: var(--bold-font-weight);
+    color: var(--bold-font-color);
+}
+
+h1{
+    font-size: var(--bolder-font-size);
+    line-height: var(--bolder-line-height);
+}
+
+h2{
+    font-size: var(--bold-font-size);
+    line-height: var(--bold-line-height);
+}
+
+h3{
+    font-size: var(--normal-font-size);
+    line-height: var(--normal-line-height)
+}
+
+blockquote{
+    font-size: var(--light-font-size);
+    line-height: var(--light-line-height);
+    color: var(--light-font-color);
+
+    box-sizing: border-box;
+    padding: 0 0 0 1rem;
+    margin: 0;
+
+    background: var(--thin-color);
+    border-left: 4px solid var(--middle-color);
+}
