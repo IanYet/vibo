@@ -14,101 +14,101 @@
     <header></header>
     <article>
         <nav></nav>
-        <div id="content">
-            <h1 id="vibo">vibo</h1>
-            <hr>
-            <blockquote>
-            <p>这里准备记录vibo的想法，开发，优化与发布的全过程</p>
-            </blockquote>
-            <h3 id="-">我需要什么</h3>
-            <p>我要一个博客。</p>
-            <p>本地用typora编辑markdown，由工具生成静态html，发布到github上，通过github.io/blog访问。</p>
-            <h3 id="-">初步想法</h3>
-            <p>hexo是一个不错的解决方案。但是为什么不用hexo？理由如下</p>
-            <ul>
-            <li>hexo是一个相当复杂的工具，有很多的配置项。但其本身，只是一个工具。我花时间去搞清楚hexo到底是怎么回事，不会带给我任何成长。</li>
-            <li>hexo的功能太多，我只想写一个博客</li>
-            <li>hexo的主题大多数不符合我的审美，NexT看着还ok，但是太多人用了。而且NexT就一个主题而已，搞得那么复杂？</li>
-            <li>自己开发一个主题？那我为什么不写一个轻量版的hexo呢</li>
-            </ul>
-            <p>其他博客源：</p>
-            <ul>
-            <li>主题不可定制，丑且千篇一律</li>
-            </ul>
-            <h3 id="-">我在做什么</h3>
-            <p>一个轻量版的hexo，其功能包括：</p>
-            <ul>
-            <li>输入markdown字符串</li>
-            <li>通过中间件对字符串进行流式处理</li>
-            <li>第一个中间件是markdown -&gt; html</li>
-            <li>通过命令行编译，本地预览，部署到github相应仓库的相应分支</li>
-            <li>PWA支持</li>
-            </ul>
-            <h3 id="-">技术想法</h3>
-            <ul>
-            <li><p>markdwon编译成html：<a href="https://marked.js.org/#/README.md">marked</a>。</p>
-            </li>
-            <li><p>中间件的处理方式：</p>
-            </li>
-            <li><pre><code class="language-javascript">const app = {
-                middleware: [],
-                init: function(ctx){
-                    //...
-                }
-                use: function(fn){
-                    this.middleware.push(fn)
-                },
-                start: function(ctx){
-                    const reducer = (next, fn) =&gt; () =&gt; fn(ctx, next)
-                    this.middleware.reduceRight(reducer, this.init(ctx))
-                }
-            }</code></pre>
-            </li>
-            <li><p>child_process API执行shell脚本</p>
-            </li>
-            <li><p>暂时不用模版引擎，没有想到痛点</p>
-            </li>
-            <li><p>主题应该是重新定义模版html与css</p>
-            </li>
-            <li><p>渲染函数应该作为init函数</p>
-            </li>
-            <li><p>主题开发方式：id固定的html+css，以及json配置文件（负责管理预设模块是否显示的）</p>
-            </li>
-            <li><p>api</p>
-            </li>
-            <li><p>pwa</p>
-            </li>
-            </ul>
-            <h3 id="-">开发</h3>
-            <ul>
-            <li><a href="https://developer.github.com/v3/">github api</a></li>
-            <li>用promise代替中间件</li>
-            </ul>
-            <h3 id="todo">todo</h3>
-            <ol>
-            <li>记录md源文件的md5值，来确定每次编译的文件</li>
-            <li>GitHub api</li>
-            <li>init.js</li>
-            <li>写第一个主题</li>
-            <li>完善配置文件</li>
-            </ol>
-            <h3 id="test">test</h3>
-            <ul>
-            <li>nihao<ul>
-            <li>nihao</li>
-            <li>nihao</li>
-            </ul>
-            </li>
-            <li>nihao </li>
-            <li><blockquote>
-            <p>ddddd
-                ddddddd
-                dddddd</p>
-            <pre><code>  sddd</code></pre><p>  dddddd</p>
-            </blockquote>
-            </li>
-            </ul>
-        </div>
+        <h1 id="vibo">vibo</h1>
+<hr>
+<hr>
+<blockquote>
+<p>这里准备记录vibo的想法，开发，优化与发布的全过程</p>
+</blockquote>
+<h3 id="-">我需要什么</h3>
+<p>我要一个博客。</p>
+<p>本地用typora编辑markdown，由工具生成静态html，发布到github上，通过github.io/blog访问。</p>
+<h3 id="-">初步想法</h3>
+<p>hexo是一个不错的解决方案。但是为什么不用hexo？理由如下</p>
+<ul>
+<li>hexo是一个相当复杂的工具，有很多的配置项。但其本身，只是一个工具。我花时间去搞清楚hexo到底是怎么回事，不会带给我任何成长。</li>
+<li>hexo的功能太多，我只想写一个博客</li>
+<li>hexo的主题大多数不符合我的审美，NexT看着还ok，但是太多人用了。而且NexT就一个主题而已，搞得那么复杂？</li>
+<li>自己开发一个主题？那我为什么不写一个轻量版的hexo呢</li>
+</ul>
+<p>其他博客源：</p>
+<ul>
+<li>主题不可定制，丑且千篇一律</li>
+</ul>
+<h3 id="-">我在做什么</h3>
+<p>一个轻量版的hexo，其功能包括：</p>
+<ul>
+<li>输入markdown字符串</li>
+<li>通过中间件对字符串进行流式处理</li>
+<li>第一个中间件是markdown -&gt; html</li>
+<li>通过命令行编译，本地预览，部署到github相应仓库的相应分支</li>
+<li>PWA支持</li>
+</ul>
+<h3 id="-">技术想法</h3>
+<ul>
+<li><p>markdwon编译成html：<a href="https://marked.js.org/#/README.md">marked</a>。</p>
+</li>
+<li><p>中间件的处理方式：</p>
+</li>
+<li><pre><code class="language-javascript">const app = {
+    middleware: [],
+    init: function(ctx){
+        //...
+    }
+    use: function(fn){
+        this.middleware.push(fn)
+    },
+    start: function(ctx){
+        const reducer = (next, fn) =&gt; () =&gt; fn(ctx, next)
+        this.middleware.reduceRight(reducer, this.init(ctx))
+    }
+}</code></pre>
+</li>
+<li><p>child_process API执行shell脚本</p>
+</li>
+<li><p>暂时不用模版引擎，没有想到痛点</p>
+</li>
+<li><p>主题应该是重新定义模版html与css</p>
+</li>
+<li><p>渲染函数应该作为init函数</p>
+</li>
+<li><p>主题开发方式：id固定的html+css，以及json配置文件（负责管理预设模块是否显示的）</p>
+</li>
+<li><p>api</p>
+</li>
+<li><p>pwa</p>
+</li>
+</ul>
+<h3 id="-">开发</h3>
+<ul>
+<li><a href="https://developer.github.com/v3/">github api</a></li>
+<li>用promise代替中间件</li>
+</ul>
+<h3 id="todo">todo</h3>
+<ol>
+<li>记录md源文件的md5值，来确定每次编译的文件</li>
+<li>GitHub api</li>
+<li>init.js</li>
+<li>写第一个主题</li>
+<li>完善配置文件</li>
+</ol>
+<h3 id="test">test</h3>
+<ul>
+<li>nihao<ul>
+<li>nihao</li>
+<li>nihao</li>
+</ul>
+</li>
+<li>nihao </li>
+<li><blockquote>
+<p>ddddd
+  ddddddd
+  dddddd</p>
+<pre><code>  sddd</code></pre><p>  dddddd</p>
+</blockquote>
+</li>
+</ul>
+
     </article>
     <footer></footer>
 </body>
