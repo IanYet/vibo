@@ -35,14 +35,14 @@ blockquote{
     padding: 0 1rem;
     margin: 1rem 0;
 
-    background: var(--thin-color);
+    /* background: var(--thin-color); */
     border-left: 5px solid var(--middle-color);
     border-radius: 0 5px 5px 0;
 }
 
 blockquote p{
     margin: 0;
-    padding: var(--light-font-size) 0;
+    padding: calc(var(--light-font-size)/2) 0;
 }
 
 pre{
@@ -59,7 +59,7 @@ table{
 }
 
 thead{
-    background-color: var(--thin-color);
+    background-color: rgb(250, 250, 250);
     border-radius: 5px 5px 0 0;
 }
 
@@ -86,6 +86,15 @@ th{
     line-height: var(--normal-line-height);
     font-weight: var(--bold-font-weight);
 }
+
+th:first-child{
+    border-radius: 5px 0 0 0;
+}
+
+th:last-child {
+    border-radius: 0 5px 0 0;
+}
+
 td{
     font-size: var(--light-font-size);
     line-height: var(--light-line-height);
