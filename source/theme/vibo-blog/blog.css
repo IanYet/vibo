@@ -49,3 +49,44 @@ pre{
     width: 100%;
     overflow: auto;
 }
+
+table{
+    width: 100%;
+    border: 1px solid var(--border-color);
+
+    border-radius: 5px;
+    border-spacing: 0;
+}
+
+thead{
+    background-color: var(--thin-color);
+    border-radius: 5px 5px 0 0;
+}
+
+tbody tr{
+    transition: all 200ms ease-in-out;
+}
+
+tbody tr:hover{
+    background-color: var(--thin-color);
+}
+
+tbody tr:last-child td{
+    border: none;
+}
+
+th, td{
+    padding: 0.75rem 1rem;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+th{
+    font-size: var(--normal-font-size);
+    line-height: var(--normal-line-height);
+    font-weight: var(--bold-font-weight);
+}
+td{
+    font-size: var(--light-font-size);
+    line-height: var(--light-line-height);
+}
