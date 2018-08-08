@@ -6,12 +6,13 @@ const { getFilePromise, setFilePromise, getHtmlPath } = require('./lib/utils')
 const { markdownToHtml } = require('./middleware/defaultWares')
 
 const vibo = new Vibo({})
-const startPromise = getFilePromise(`${DOCS_DIR}vi-blog.md`)
+const startPromise = Promise.all([getFilePromise(`${DOCS_DIR}vi-blog.md`), getFilePromise(`${DOCS_DIR}test.md`)])
 
-vibo.use(markdownToHtml)
+startPromise.then((value) => console.log(value))
+// vibo.use(markdownToHtml)
 
-const htmlPath = path.normalize(`${POST_DIR}${getHtmlPath(`${DOCS_DIR}vi-blog.md`)}`)
+// const htmlPath = path.normalize(`${POST_DIR}${getHtmlPath(`${DOCS_DIR}vi-blog.md`)}`)
 
-vibo.go(startPromise)
-    .then((context) => setFilePromise(htmlPath, context))
-    .catch((err) => console.log(err))
+// vibo.go(startPromise)
+//     .then((context) => setFilePromise(htmlPath, context))
+//     .catch((err) => console.log(err))
