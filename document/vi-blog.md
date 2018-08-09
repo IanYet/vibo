@@ -6,9 +6,9 @@
 
 ### 我需要什么
 
-我要一个博客。
+我=要=一个~博客~。
 
-本地用typora编辑markdown，由工具生成静态html，发布到github上，通过github.io/blog访问。
+本**地用typora**编辑markdown，由*工具*生成静态html，发布到github上，通过github.io/blog访问。
 
 ### 初步想法
 
