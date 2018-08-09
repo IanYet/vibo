@@ -26,7 +26,7 @@ html{
     --light-color: #fdfeff;
     --thin-color: #eef4ff;
     --middle-color: #3f72af;
-    --thick-color: #112d4e;
+    --thick-color: #2b303b;
 
     /* box-shadow */
     --box-shadow: 0 2px 8px #f0f1f2;
@@ -77,15 +77,15 @@ h3{
 
 a{
     text-decoration: none;
-    transition: all 500ms ease-in-out;
+    transition: all 300ms ease-in-out;
 }
 
 a:link,a:visited,a:active{
-    color: var(--thick-color);
+    color: var(--middle-color);
 }
 
 a:hover{
-    color: var(--middle-color);
+    color: var(--thick-color);
 }
 
 hr{

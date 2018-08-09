@@ -34,8 +34,7 @@
 }
 
 /* Ocean Yellow */
-.hljs-attr,
-.hljs-attribute {
+.hljs-attr {
   color: #ebcb8b;
 }
 
@@ -59,13 +58,10 @@
   color: #b48ead;
 }
 
-.hljs {
-  overflow-x: auto;
-  background: #2b303b;
-  color: #c0c5ce;
-  padding: 0.5em;
+/* Ocean Gray */
+.hljs-attribute{
+    color: #c0c5ce;
 }
-
 .hljs-emphasis {
   font-style: italic;
 }

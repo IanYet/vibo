@@ -90,7 +90,7 @@ hexo是一个不错的解决方案。但是为什么不用hexo？理由如下
 | c     |   c   |     c |
 
 ---more---
-this is single `hello world`
+this is single `hello`
 ```
 hello world
 ```
