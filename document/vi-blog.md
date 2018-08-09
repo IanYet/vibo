@@ -2,8 +2,6 @@
 
 ---
 
----
-
 > 这里准备记录vibo的想法，开发，优化与发布的全过程
 
 ### 我需要什么
@@ -38,15 +36,13 @@ hexo是一个不错的解决方案。但是为什么不用hexo？理由如下
 ### 技术想法
 
 - markdwon编译成html：[marked](https://marked.js.org/#/README.md)。
-
 - 中间件的处理方式：
-
-- ```javascript
+- ```
   const app = {
       middleware: [],
       init: function(ctx){
           //...
-      }
+      },
       use: function(fn){
           this.middleware.push(fn)
       },
@@ -58,17 +54,11 @@ hexo是一个不错的解决方案。但是为什么不用hexo？理由如下
   ```
 
 - child_process API执行shell脚本
-
 - 暂时不用模版引擎，没有想到痛点
-
 - 主题应该是重新定义模版html与css
-
 - 渲染函数应该作为init函数
-
 - 主题开发方式：id固定的html+css，以及json配置文件（负责管理预设模块是否显示的）
-
 - api
-
 - pwa
 
 ### 开发
@@ -92,9 +82,6 @@ hexo是一个不错的解决方案。但是为什么不用hexo？理由如下
 - > ddddd
   > ddddddd
   > dddddd
-  > ```
-  > sddd
-  > ```
   > dddddd
 
 | title | title | title |
@@ -103,3 +90,7 @@ hexo是一个不错的解决方案。但是为什么不用hexo？理由如下
 | c     |   c   |     c |
 
 ---more---
+this is single `hello world`
+```
+hello world
+```

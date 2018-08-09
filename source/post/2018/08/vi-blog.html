@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="../../../theme/vibo-blog/blog.css" />
+    <link rel="stylesheet" type="text/css" href="../../../theme/vibo-blog/code.css" />
     <script src=""></script>
 </head>
 <body>
@@ -15,7 +16,6 @@
     <article>
         <nav></nav>
         <h1 id="vibo">vibo</h1>
-<hr>
 <hr>
 <blockquote>
 <p>这里准备记录vibo的想法，开发，优化与发布的全过程</p>
@@ -46,38 +46,29 @@
 </ul>
 <h3 id="-">技术想法</h3>
 <ul>
-<li><p>markdwon编译成html：<a href="https://marked.js.org/#/README.md">marked</a>。</p>
-</li>
-<li><p>中间件的处理方式：</p>
-</li>
-<li><pre><code class="language-javascript">const app = {
-    middleware: [],
-    init: function(ctx){
-        //...
-    }
-    use: function(fn){
-        this.middleware.push(fn)
+<li>markdwon编译成html：<a href="https://marked.js.org/#/README.md">marked</a>。</li>
+<li>中间件的处理方式：</li>
+<li><pre><code><span class="hljs-keyword">const</span> app = {
+    <span class="hljs-attr">middleware</span>: [],
+    <span class="hljs-attr">init</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ctx</span>)</span>{
+        <span class="hljs-comment">//...</span>
     },
-    start: function(ctx){
-        const reducer = (next, fn) =&gt; () =&gt; fn(ctx, next)
-        this.middleware.reduceRight(reducer, this.init(ctx))
+    <span class="hljs-attr">use</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">fn</span>)</span>{
+        <span class="hljs-keyword">this</span>.middleware.push(fn)
+    },
+    <span class="hljs-attr">start</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ctx</span>)</span>{
+        <span class="hljs-keyword">const</span> reducer = <span class="hljs-function">(<span class="hljs-params">next, fn</span>) =&gt;</span> () =&gt; fn(ctx, next)
+        <span class="hljs-keyword">this</span>.middleware.reduceRight(reducer, <span class="hljs-keyword">this</span>.init(ctx))
     }
-}</code></pre>
-</li>
+}</code></pre></li>
 <li><p>child_process API执行shell脚本</p>
 </li>
-<li><p>暂时不用模版引擎，没有想到痛点</p>
-</li>
-<li><p>主题应该是重新定义模版html与css</p>
-</li>
-<li><p>渲染函数应该作为init函数</p>
-</li>
-<li><p>主题开发方式：id固定的html+css，以及json配置文件（负责管理预设模块是否显示的）</p>
-</li>
-<li><p>api</p>
-</li>
-<li><p>pwa</p>
-</li>
+<li>暂时不用模版引擎，没有想到痛点</li>
+<li>主题应该是重新定义模版html与css</li>
+<li>渲染函数应该作为init函数</li>
+<li>主题开发方式：id固定的html+css，以及json配置文件（负责管理预设模块是否显示的）</li>
+<li>api</li>
+<li>pwa</li>
 </ul>
 <h3 id="-">开发</h3>
 <ul>
@@ -103,8 +94,8 @@
 <li><blockquote>
 <p>ddddd
 ddddddd
+dddddd
 dddddd</p>
-<pre><code>sddd</code></pre><p>dddddd</p>
 </blockquote>
 </li>
 </ul>
@@ -127,8 +118,9 @@ dddddd</p>
 <td align="right">c</td>
 </tr>
 </tbody></table>
-<p>---more---</p>
-
+<p>---more---
+this is single <code><span class="hljs-attribute">hello world</span></code></p>
+<pre><code><span class="hljs-attribute">hello world</span></code></pre>
     </article>
     <footer></footer>
 </body>

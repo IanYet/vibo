@@ -36,8 +36,8 @@ blockquote{
     margin: 1rem 0;
 
     /* background: var(--thin-color); */
-    border-left: 5px solid var(--middle-color);
-    border-radius: 0 5px 5px 0;
+    border-left: 2px solid var(--middle-color);
+    /* border-radius: 0 5px 5px 0; */
 }
 
 blockquote p{
@@ -98,4 +98,19 @@ th:last-child {
 td{
     font-size: var(--light-font-size);
     line-height: var(--light-line-height);
+}
+
+strong{
+    font-weight: var(--bold-font-weight);
+}
+
+em{
+    color: var(--light-font-color);
+}
+
+li{
+    margin: 0.5rem 0;
+}
+li p, li pre{
+    margin: 0;
 }
