@@ -111,6 +111,7 @@ li p, li pre{
 }
 
 pre{
+    box-sizing: border-box;
     background: var(--thick-color);
     width: 100%;
     overflow: auto;
@@ -120,6 +121,7 @@ pre{
 }
 
 code{
+    box-sizing: border-box;
     font-size: var(--light-font-size);
     line-height: var(--light-line-height);
     font-family: Menlo, Monaco, 'Courier New', monospace;
