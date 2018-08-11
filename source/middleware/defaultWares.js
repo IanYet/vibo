@@ -12,7 +12,7 @@ const { THEME_DIR } = require('../lib/constant')
  * @param {String} context article string
  */
 const markdownToHtml = (context) => {
-    
+
     //TODO marked option
     return marked(context)
 }
@@ -34,14 +34,20 @@ const hightHtml = (context) => {
     const inlineReg = />[\s|\S]+?</g
 
     return context.replace(blockReg, (codeBlock) => codeBlock.replace(inlineReg, (code) => {
-        code = code.replace('>', '')
-            .replace('<', '')
+        code = code.slice(1, code.length - 1)
             .replace(/&lt;/g, '<')
             .replace(/&gt;/g, '>')
 
         return `>${hljs.highlightAuto(code).value}<`
     }))
 }
+
+const highlight = (context) =>
+    context.replace(/=\S+?=/g, (highlightBlock) =>
+        `<span class="highlight">${highlightBlock.slice(1, code.length - 1)}</span>`)
+
+// const sub
+
 module.exports = {
     markdownToHtml,
     mixinHtml,
