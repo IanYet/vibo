@@ -11,3 +11,6 @@ module.exports.DOCS_DIR = path.normalize(`${__dirname}/../../document/`)
 
 //dir: vibo/source/theme/[theme]/
 module.exports.THEME_DIR = theme => path.normalize(`${__dirname}/../theme/${theme}/`)
+
+//dir: vibo/source/db
+module.exports.DB_DIR = path.normalize(`${__dirname}/../db/`)
