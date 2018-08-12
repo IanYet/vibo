@@ -29,7 +29,7 @@ const mixinHtml = (context) => getFilePromise(THEME_DIR('vibo-blog') + 'blog.htm
  * highlight code
  * @param {String} context article html string
  */
-const hightHtml = (context) => {
+const highlightCode = (context) => {
     const blockReg = /<code[\s|\S]+?<\/code>/g
     const inlineReg = />[\s|\S]+?</g
 
@@ -51,5 +51,5 @@ const highlight = (context) =>
 module.exports = {
     markdownToHtml,
     mixinHtml,
-    hightHtml,
+    highlightCode,
 }

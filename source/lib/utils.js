@@ -68,6 +68,11 @@ const makeDir = (dirArr) => new Promise((resolve, reject) => {
     }
     return makeDir(dirArr)
 })
+
+//todo
+const updateHashPromise = (path) => new Promise((resolve, reject) => {
+
+})
 /**
  * return last half of post file
  * e.g. 2018/09/[name].html
