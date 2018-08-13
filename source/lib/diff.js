@@ -15,7 +15,7 @@ const walkPromise = new Promise((resolve, reject) => {
     })
 })
 
-module.exports =  walkPromise.then((files) => new Promise((resolve, reject) => {
+module.exports =  walkPromise.then((files) => {
     const changedFiles = []
 
     files.forEach((file) => {
@@ -28,8 +28,8 @@ module.exports =  walkPromise.then((files) => new Promise((resolve, reject) => {
         }
     })
 
-    resolve(changedFiles)
+    return changedFiles
 
-})).then((changedFiles) => setFilePromise(`${DB_DIR}hash.json`, JSON.stringify(filesHash))
+}).then((changedFiles) => setFilePromise(`${DB_DIR}hash.json`, JSON.stringify(filesHash))
     .then(() => changedFiles))
     .catch((err) => console.log(err))
