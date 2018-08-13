@@ -4,7 +4,7 @@ const path = require('path')
 
 const { DOCS_DIR, DB_DIR } = require('./constant')
 const filesHash = require('../db/hash.json')
-const { getFilePromise } = require('../lib/utils')
+const { getFilePromise, setFilePromise } = require('../lib/utils')
 
 const walkPromise = new Promise((resolve, reject) => {
     fs.readdir(DOCS_DIR, (err, files) => {
@@ -25,9 +25,14 @@ walkPromise.then((files) => new Promise((resolve, reject) => {
 
             if (fileHash !== filesHash[file]) {
                 changedFiles.push(file)
-
-                if (index === files.length - 1) resolve(changedFiles)
+                filesHash[file] = fileHash
             }
+
+            if (index === files.length - 1) resolve(changedFiles)
         })
     })
-})).then((changedFiles) => console.log(changedFiles))
+})).then((changedFiles) => {
+    setFilePromise(`${DB_DIR}hash.json`, JSON.stringify(filesHash)).then(() => console.log(changedFiles))
+
+    return changedFiles
+})
