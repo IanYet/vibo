@@ -16,7 +16,7 @@ const walkPromise = new Promise((resolve, reject) => {
     })
 })
 
-walkPromise.then((files) => new Promise((resolve, reject) => {
+module.exports =  walkPromise.then((files) => new Promise((resolve, reject) => {
     const changedFiles = []
 
     files.forEach((file, index) => {

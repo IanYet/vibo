@@ -71,21 +71,6 @@ const makeDir = (dirArr) => new Promise((resolve, reject) => {
 })
 
 /**
- * compute the file's hash and write to hash.json
- * @param {String} path path + filename + ext
- * @param {String} context file content
- */
-const updateHashPromise = (path, context) => {
-    const fileName = pt.basename(path)
-    const fileHash = crypto.createHash('md5').update(context).digest('hex')
-    const filesHash = require('../db/hash.json')
-
-    filesHash[fileName] = fileHash
-
-    return setFilePromise(`${DB_DIR}hash.json`, JSON.stringify(filesHash))
-}
-
-/**
  * return last half of post file
  * e.g. 2018/09/[name].html
  * @param {String} path originla file's path + filename + ext

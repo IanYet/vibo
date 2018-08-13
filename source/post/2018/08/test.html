@@ -8,19 +8,20 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="../../../theme/vibo-blog/blog.css" />
+    <link rel="stylesheet" type="text/css" href="../../../theme/vibo-blog/code.css" />
     <script src=""></script>
 </head>
 <body>
     <header></header>
     <article>
         <nav></nav>
-        <span class="hljs-params">&lt;h2 id="extending-marked"&gt;</span>Extending Marked<span class="hljs-params">&lt;/h2&gt;</span>
-<span class="hljs-params">&lt;p&gt;</span>To champion the single-reponsibility and open/closed prinicples, we have tried to make it relatively painless to extend marked. If you are looking to add custom functionality, this is the place to start.<span class="hljs-params">&lt;/p&gt;</span>
-<span class="hljs-params">&lt;h2 id="renderer"&gt;</span>The renderer<span class="hljs-params">&lt;/h2&gt;</span>
+        <h2 id="extending-marked">Extending Marked</h2>
+<p>To champion the single-reponsibility and open/closed prinicples, we have tried to make it relatively painless to extend marked. If you are</p>
+<h2 id="renderer">The renderer</h2>
 
-<span class="hljs-params">&lt;p&gt;</span>The renderer is...<span class="hljs-params">&lt;/p&gt;</span>
-<span class="hljs-params">&lt;p&gt;</span><span class="hljs-params">&lt;strong&gt;</span>Example:<span class="hljs-params">&lt;/strong&gt;</span> Overriding default heading token by adding an embedded anchor tag like on GitHub.<span class="hljs-params">&lt;/p&gt;</span>
-<span class="hljs-params">&lt;pre&gt;</span><span class="hljs-params">&lt;code class="language-js"&gt;</span><span class="hljs-comment">// Create reference instance</span>
+<p>The renderer is...</p>
+<p><strong>Example:</strong> Overriding default heading token by adding an embedded anchor tag like on GitHub.</p>
+<pre><code class="language-js"><span class="hljs-comment">// Create reference instance</span>
 var myMarked = require(&amp;<span class="hljs-meta">#39;marked&amp;#39;);</span>
 
 <span class="hljs-comment">// Get reference</span>
@@ -31,105 +32,105 @@ renderer.heading = function (text, level) {
   var escapedText = text.toLowerCase().replace(/[^\w]+/g, &amp;<span class="hljs-meta">#39;-&amp;#39;);</span>
 
   return `
-          <span class="hljs-variable">&amp;lt</span>;h${level}<span class="hljs-variable">&amp;gt</span>;
-            <span class="hljs-variable">&amp;lt</span>;a name=<span class="hljs-variable">&amp;quot</span>;${escapedText}<span class="hljs-variable">&amp;quot</span>; class=<span class="hljs-variable">&amp;quot</span>;anchor<span class="hljs-variable">&amp;quot</span>; href=<span class="hljs-variable">&amp;quot</span>;<span class="hljs-meta">#${escapedText}&amp;quot;&amp;gt;</span>
-              <span class="hljs-variable">&amp;lt</span>;span class=<span class="hljs-variable">&amp;quot</span>;header-link<span class="hljs-variable">&amp;quot</span>;<span class="hljs-variable">&amp;gt</span>;<span class="hljs-variable">&amp;lt</span>;/span<span class="hljs-variable">&amp;gt</span>;
-            <span class="hljs-variable">&amp;lt</span>;/a<span class="hljs-variable">&amp;gt</span>;
+          <span class="hljs-params">&lt;h${level}&gt;</span>
+            <span class="hljs-params">&lt;a name=<span class="hljs-variable">&amp;quot</span>;${escapedText}<span class="hljs-variable">&amp;quot</span>; class=<span class="hljs-variable">&amp;quot</span>;anchor<span class="hljs-variable">&amp;quot</span>; href=<span class="hljs-variable">&amp;quot</span>;#${escapedText}<span class="hljs-variable">&amp;quot</span>;&gt;</span>
+              <span class="hljs-params">&lt;span class=<span class="hljs-variable">&amp;quot</span>;header-link<span class="hljs-variable">&amp;quot</span>;&gt;</span><span class="hljs-params">&lt;/span&gt;</span>
+            <span class="hljs-params">&lt;/a&gt;</span>
             ${text}
-          <span class="hljs-variable">&amp;lt</span>;/h${level}<span class="hljs-variable">&amp;gt</span>;`;
+          <span class="hljs-params">&lt;/h${level}&gt;</span>`;
 };
 
 <span class="hljs-comment">// Run marked</span>
-console.log(myMarked(&amp;<span class="hljs-meta">#39;# heading+&amp;#39;, { renderer: renderer }));&lt;/code&gt;&lt;/pre&gt;</span>
-<span class="hljs-params">&lt;p&gt;</span><span class="hljs-params">&lt;strong&gt;</span>Output:<span class="hljs-params">&lt;/strong&gt;</span><span class="hljs-params">&lt;/p&gt;</span>
-<span class="hljs-params">&lt;pre&gt;</span><span class="hljs-params">&lt;code class="language-html"&gt;</span><span class="hljs-variable">&amp;lt</span>;h1<span class="hljs-variable">&amp;gt</span>;
-  <span class="hljs-variable">&amp;lt</span>;a name=<span class="hljs-variable">&amp;quot</span>;heading-<span class="hljs-variable">&amp;quot</span>; class=<span class="hljs-variable">&amp;quot</span>;anchor<span class="hljs-variable">&amp;quot</span>; href=<span class="hljs-variable">&amp;quot</span>;<span class="hljs-meta">#heading-&amp;quot;&amp;gt;</span>
-    <span class="hljs-variable">&amp;lt</span>;span class=<span class="hljs-variable">&amp;quot</span>;header-link<span class="hljs-variable">&amp;quot</span>;<span class="hljs-variable">&amp;gt</span>;<span class="hljs-variable">&amp;lt</span>;/span<span class="hljs-variable">&amp;gt</span>;
-  <span class="hljs-variable">&amp;lt</span>;/a<span class="hljs-variable">&amp;gt</span>;
+console.log(myMarked(&amp;<span class="hljs-meta">#39;# heading+&amp;#39;, { renderer: renderer }));</span></code></pre>
+<p><strong>Output:</strong></p>
+<pre><code class="language-html"><span class="hljs-params">&lt;h1&gt;</span>
+  <span class="hljs-params">&lt;a name=<span class="hljs-variable">&amp;quot</span>;heading-<span class="hljs-variable">&amp;quot</span>; class=<span class="hljs-variable">&amp;quot</span>;anchor<span class="hljs-variable">&amp;quot</span>; href=<span class="hljs-variable">&amp;quot</span>;#heading-<span class="hljs-variable">&amp;quot</span>;&gt;</span>
+    <span class="hljs-params">&lt;span class=<span class="hljs-variable">&amp;quot</span>;header-link<span class="hljs-variable">&amp;quot</span>;&gt;</span><span class="hljs-params">&lt;/span&gt;</span>
+  <span class="hljs-params">&lt;/a&gt;</span>
   heading+
-<span class="hljs-variable">&amp;lt</span>;/h1<span class="hljs-variable">&amp;gt</span>;<span class="hljs-params">&lt;/code&gt;</span><span class="hljs-params">&lt;/pre&gt;</span>
-<span class="hljs-params">&lt;h3 id="block-level-renderer-methods"&gt;</span>Block level renderer methods<span class="hljs-params">&lt;/h3&gt;</span>
-<span class="hljs-params">&lt;ul&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>code(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> code, <span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> language, <span class="hljs-params">&lt;em&gt;</span>boolean<span class="hljs-params">&lt;/em&gt;</span> escaped)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>blockquote(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> quote)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>html(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> html)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>heading(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> text, <span class="hljs-params">&lt;em&gt;</span>number<span class="hljs-params">&lt;/em&gt;</span> level, <span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> rawtext)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>hr()<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>list(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> body, <span class="hljs-params">&lt;em&gt;</span>boolean<span class="hljs-params">&lt;/em&gt;</span> ordered, <span class="hljs-params">&lt;em&gt;</span>number<span class="hljs-params">&lt;/em&gt;</span> start)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>listitem(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> text)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>paragraph(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> text)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>table(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> header, <span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> body)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>tablerow(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> content)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>tablecell(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> content, <span class="hljs-params">&lt;em&gt;</span>object<span class="hljs-params">&lt;/em&gt;</span> flags)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;/ul&gt;</span>
-<span class="hljs-params">&lt;p&gt;</span><span class="hljs-params">&lt;code&gt;</span>flags<span class="hljs-params">&lt;/code&gt;</span> has the following properties:<span class="hljs-params">&lt;/p&gt;</span>
-<span class="hljs-params">&lt;pre&gt;</span><span class="hljs-params">&lt;code class="language-js"&gt;</span>{
-<span class="hljs-symbol">    header:</span> true || false,
-<span class="hljs-symbol">    align:</span> &amp;<span class="hljs-meta">#39;center&amp;#39; || &amp;#39;left&amp;#39; || &amp;#39;right&amp;#39;</span>
-}<span class="hljs-params">&lt;/code&gt;</span><span class="hljs-params">&lt;/pre&gt;</span>
-<span class="hljs-params">&lt;h3 id="inline-level-renderer-methods"&gt;</span>Inline level renderer methods<span class="hljs-params">&lt;/h3&gt;</span>
-<span class="hljs-params">&lt;ul&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>strong(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> text)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>em(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> text)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>codespan(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> code)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>br()<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>del(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> text)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>link(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> href, <span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> title, <span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> text)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>image(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> href, <span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> title, <span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> text)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;li&gt;</span>text(<span class="hljs-params">&lt;em&gt;</span>string<span class="hljs-params">&lt;/em&gt;</span> text)<span class="hljs-params">&lt;/li&gt;</span>
-<span class="hljs-params">&lt;/ul&gt;</span>
-<span class="hljs-params">&lt;h2 id="lexer"&gt;</span>The lexer<span class="hljs-params">&lt;/h2&gt;</span>
+<span class="hljs-params">&lt;/h1&gt;</span></code></pre>
+<h3 id="block-level-renderer-methods">Block level renderer methods</h3>
+<ul>
+<li>code(<em>string</em> code, <em>string</em> language, <em>boolean</em> escaped)</li>
+<li>blockquote(<em>string</em> quote)</li>
+<li>html(<em>string</em> html)</li>
+<li>heading(<em>string</em> text, <em>number</em> level, <em>string</em> rawtext)</li>
+<li>hr()</li>
+<li>list(<em>string</em> body, <em>boolean</em> ordered, <em>number</em> start)</li>
+<li>listitem(<em>string</em> text)</li>
+<li>paragraph(<em>string</em> text)</li>
+<li>table(<em>string</em> header, <em>string</em> body)</li>
+<li>tablerow(<em>string</em> content)</li>
+<li>tablecell(<em>string</em> content, <em>object</em> flags)</li>
+</ul>
+<p><code><span class="hljs-attribute">flags</span></code> has the following properties:</p>
+<pre><code class="language-js">{
+    <span class="hljs-keyword">header</span>: <span class="hljs-literal">true</span> || <span class="hljs-literal">false</span>,
+    align: &amp;#39;center&amp;#39; || &amp;#39;left&amp;#39; || &amp;#39;right&amp;#39;
+}</code></pre>
+<h3 id="inline-level-renderer-methods">Inline level renderer methods</h3>
+<ul>
+<li>strong(<em>string</em> text)</li>
+<li>em(<em>string</em> text)</li>
+<li>codespan(<em>string</em> code)</li>
+<li>br()</li>
+<li>del(<em>string</em> text)</li>
+<li>link(<em>string</em> href, <em>string</em> title, <em>string</em> text)</li>
+<li>image(<em>string</em> href, <em>string</em> title, <em>string</em> text)</li>
+<li>text(<em>string</em> text)</li>
+</ul>
+<h2 id="lexer">The lexer</h2>
 
-<span class="hljs-params">&lt;p&gt;</span>The lexer is...<span class="hljs-params">&lt;/p&gt;</span>
-<span class="hljs-params">&lt;h2 id="parser"&gt;</span>The parser<span class="hljs-params">&lt;/h2&gt;</span>
+<p>The lexer is...</p>
+<h2 id="parser">The parser</h2>
 
-<span class="hljs-params">&lt;p&gt;</span>The parser is...<span class="hljs-params">&lt;/p&gt;</span>
-<span class="hljs-params">&lt;hr&gt;</span>
-<span class="hljs-params">&lt;h2 id="extend"&gt;</span>Access to lexer and parser<span class="hljs-params">&lt;/h2&gt;</span>
+<p>The parser is...</p>
+<hr>
+<h2 id="extend">Access to lexer and parser</h2>
 
-<span class="hljs-params">&lt;p&gt;</span>You also have direct access to the lexer and parser if you so desire.<span class="hljs-params">&lt;/p&gt;</span>
-<span class="hljs-params">&lt;pre&gt;</span><span class="hljs-params">&lt;code class="language-js"&gt;</span>var tokens = marked.lexer(text, options);
-console.log(marked.parser(tokens));<span class="hljs-params">&lt;/code&gt;</span><span class="hljs-params">&lt;/pre&gt;</span>
-<span class="hljs-params">&lt;pre&gt;</span><span class="hljs-params">&lt;code class="language-js"&gt;</span>var lexer = new marked.Lexer(options);
-var tokens = lexer.lex(text);
-console.log(tokens);
-console.log(lexer.rules);<span class="hljs-params">&lt;/code&gt;</span><span class="hljs-params">&lt;/pre&gt;</span>
-<span class="hljs-params">&lt;pre&gt;</span><span class="hljs-params">&lt;code class="language-bash"&gt;</span>$ node
-<span class="hljs-variable">&amp;gt</span>; require(&amp;<span class="hljs-meta">#39;marked&amp;#39;).lexer(&amp;#39;&amp;gt; i am using marked.&amp;#39;)</span>
-[ { type: &amp;<span class="hljs-meta">#39;blockquote_start&amp;#39; },</span>
-  { type: &amp;<span class="hljs-meta">#39;paragraph&amp;#39;,</span>
-<span class="hljs-symbol">    text:</span> &amp;<span class="hljs-meta">#39;i am using marked.&amp;#39; },</span>
-  { type: &amp;<span class="hljs-meta">#39;blockquote_end&amp;#39; },</span>
-<span class="hljs-symbol">  links:</span> {} ]<span class="hljs-params">&lt;/code&gt;</span><span class="hljs-params">&lt;/pre&gt;</span>
-<span class="hljs-params">&lt;p&gt;</span>The Lexers build an array of tokens, which will be passed to their respective
+<p>You also have direct access to the lexer and parser if you so desire.</p>
+<pre><code class="language-js"><span class="hljs-built_in">var</span> <span class="hljs-built_in">tokens</span> = marked.lexer(text, options);
+console.<span class="hljs-built_in">log</span>(marked.parser(<span class="hljs-built_in">tokens</span>));</code></pre>
+<pre><code class="language-js"><span class="hljs-built_in">var</span> lexer = <span class="hljs-built_in">new</span> marked.Lexer(options);
+<span class="hljs-built_in">var</span> <span class="hljs-built_in">tokens</span> = lexer.lex(text);
+console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">tokens</span>);
+console.<span class="hljs-built_in">log</span>(lexer.rules);</code></pre>
+<pre><code class="language-bash">$ node
+&gt; <span class="hljs-keyword">require</span>(&amp;#39;marked&amp;#39;).lexer(&amp;#39;&gt; i am using marked.&amp;#39;)
+<span class="hljs-meta">[</span> { <span class="hljs-keyword">type</span>: &amp;#39;blockquote_start&amp;#39; },
+  { <span class="hljs-keyword">type</span>: &amp;#39;paragraph&amp;#39;,
+    text: &amp;#39;i am using marked.&amp;#39; },
+  { <span class="hljs-keyword">type</span>: &amp;#39;blockquote_end&amp;#39; },
+  links: {} <span class="hljs-meta">]</span></code></pre>
+<p>The Lexers build an array of tokens, which will be passed to their respective
 Parsers. The Parsers process each token in the token arrays,
-which are removed from the array of tokens:<span class="hljs-params">&lt;/p&gt;</span>
-<span class="hljs-params">&lt;pre&gt;</span><span class="hljs-params">&lt;code class="language-js"&gt;</span>const marked = require(&amp;<span class="hljs-meta">#39;marked&amp;#39;);</span>
+which are removed from the array of tokens:</p>
+<pre><code class="language-js">const marked = require(<span class="hljs-name">&amp;#39</span><span class="hljs-comment">;marked&amp;#39;);</span>
 
 const md = `
-  <span class="hljs-meta"># heading</span>
+  # heading
 
   [link][<span class="hljs-number">1</span>]
 
-  [<span class="hljs-number">1</span>]: <span class="hljs-meta">#heading &amp;quot;heading&amp;quot;</span>
-`;
+  [<span class="hljs-number">1</span>]: #heading <span class="hljs-symbol">&amp;quot</span><span class="hljs-comment">;heading&amp;quot;</span>
+`<span class="hljs-comment">;</span>
 
-const tokens = marked.lexer(md);
-console.log(tokens);
+const tokens = marked.lexer(<span class="hljs-name">md</span>)<span class="hljs-comment">;</span>
+console.log(<span class="hljs-name">tokens</span>)<span class="hljs-comment">;</span>
 
-const html = marked.parser(tokens);
-console.log(html);
+const html = marked.parser(<span class="hljs-name">tokens</span>)<span class="hljs-comment">;</span>
+console.log(<span class="hljs-name">html</span>)<span class="hljs-comment">;</span>
 
-console.log(tokens);<span class="hljs-params">&lt;/code&gt;</span><span class="hljs-params">&lt;/pre&gt;</span>
-<span class="hljs-params">&lt;pre&gt;</span><span class="hljs-params">&lt;code class="language-bash"&gt;</span>[ { type: &amp;<span class="hljs-meta">#39;heading&amp;#39;, depth: 1, text: &amp;#39;heading&amp;#39; },</span>
-  { type: &amp;<span class="hljs-meta">#39;paragraph&amp;#39;, text: &amp;#39;  [link][1]&amp;#39; },</span>
-  { type: &amp;<span class="hljs-meta">#39;space&amp;#39; },</span>
-<span class="hljs-symbol">  links:</span> { &amp;<span class="hljs-meta">#39;1&amp;#39;: { href: &amp;#39;#heading&amp;#39;, title: &amp;#39;heading&amp;#39; } } ]</span>
+console.log(<span class="hljs-name">tokens</span>)<span class="hljs-comment">;</span></code></pre>
+<pre><code class="language-bash">[ { type: &amp;#<span class="hljs-number">39</span>;heading&amp;#<span class="hljs-number">39</span>;, depth: <span class="hljs-number">1</span>, text: &amp;#<span class="hljs-number">39</span>;heading&amp;#<span class="hljs-number">39</span>; },
+  { type: &amp;#<span class="hljs-number">39</span>;paragraph&amp;#<span class="hljs-number">39</span>;, text: &amp;#<span class="hljs-number">39</span>;  [link][<span class="hljs-number">1</span>]&amp;#<span class="hljs-number">39</span>; },
+  { type: &amp;#<span class="hljs-number">39</span>;space&amp;#<span class="hljs-number">39</span>; },
+  links: { &amp;#<span class="hljs-number">39</span>;<span class="hljs-number">1</span>&amp;#<span class="hljs-number">39</span>;: { href: &amp;#<span class="hljs-number">39</span>;#heading&amp;#<span class="hljs-number">39</span>;, title: &amp;#<span class="hljs-number">39</span>;heading&amp;#<span class="hljs-number">39</span>; } } ]
 
-<span class="hljs-variable">&amp;lt</span>;h1 id=<span class="hljs-variable">&amp;quot</span>;heading<span class="hljs-variable">&amp;quot</span>;<span class="hljs-variable">&amp;gt</span>;heading<span class="hljs-variable">&amp;lt</span>;/h1<span class="hljs-variable">&amp;gt</span>;
-<span class="hljs-variable">&amp;lt</span>;p<span class="hljs-variable">&amp;gt</span>;  <span class="hljs-variable">&amp;lt</span>;a href=<span class="hljs-variable">&amp;quot</span>;<span class="hljs-meta">#heading&amp;quot; title=&amp;quot;heading&amp;quot;&amp;gt;link&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;</span>
+&lt;h1 id=&amp;quot;heading&amp;quot;&gt;heading&lt;/h1&gt;
+&lt;p&gt;  &lt;a href=&amp;quot;#heading&amp;quot; title=&amp;quot;heading&amp;quot;&gt;link&lt;/a&gt;&lt;/p&gt;
 
-[ links: { &amp;<span class="hljs-meta">#39;1&amp;#39;: { href: &amp;#39;#heading&amp;#39;, title: &amp;#39;heading&amp;#39; } } ]&lt;/code&gt;&lt;/pre&gt;</span>
+[ links: { &amp;#<span class="hljs-number">39</span>;<span class="hljs-number">1</span>&amp;#<span class="hljs-number">39</span>;: { href: &amp;#<span class="hljs-number">39</span>;#heading&amp;#<span class="hljs-number">39</span>;, title: &amp;#<span class="hljs-number">39</span>;heading&amp;#<span class="hljs-number">39</span>; } } ]</code></pre>
 
     </article>
     <footer></footer>
