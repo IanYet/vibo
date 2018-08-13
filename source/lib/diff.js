@@ -32,6 +32,7 @@ module.exports =  walkPromise.then((files) => new Promise((resolve, reject) => {
         })
     })
 })).then((changedFiles) => {
+    //to fix bugs
     setFilePromise(`${DB_DIR}hash.json`, JSON.stringify(filesHash)).then(() => console.log(changedFiles))
 
     return changedFiles
