@@ -2,8 +2,10 @@ const fs = require('fs')
 const crypto = require('crypto')
 
 const { DOCS_DIR, DB_DIR } = require('./constant')
-const filesHash = require('../db/hash.json')
 const { setFilePromise } = require('../lib/utils')
+
+const filesHash = require('../db/hash.json')
+const filesInfo = require('../db/info.json')
 
 const walkPromise = new Promise((resolve, reject) => {
     fs.readdir(DOCS_DIR, (err, files) => {
