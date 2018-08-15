@@ -65,3 +65,6 @@ typings/
 
 #key
 *.key
+
+#editor
+.vscode/*
