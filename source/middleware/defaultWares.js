@@ -44,7 +44,8 @@ const highlightCode = (context) => {
 
 const highlight = (context) =>
     context.replace(/=\S+?=/g, (highlightBlock) =>
-        `<span class="highlight">${highlightBlock.slice(1, code.length - 1)}</span>`)
+        `<span class="highlight">${highlightBlock.slice(1, code.length - 1)}</span>`
+    )
 
 // const sub
 
