@@ -1,6 +1,14 @@
 # vibo
 
----
+===
+
+tags: 博客，blog，github.io, markdown2html,
+
+author: Ian
+
+category：
+
+===
 
 > 这里准备记录vibo的想法，开发，优化与发=布=的全过程
 
