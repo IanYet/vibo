@@ -5,11 +5,20 @@ const hljs = require('highlight.js')
 const { getFilePromise } = require('../lib/utils')
 const { THEME_DIR } = require('../lib/constant')
 
+/**
+ * 
+ * @param {String} context original context
+ */
+const updateBlogInfo = (context) => {
+    const reg = /===[\S|\s]+?===/g
 
+    console.log(context.match(reg));
+    return context
+}
 
 /**
  * convert markdown to html
- * @param {String} context article string
+ * @param {String} context string formatted by previous middleware
  */
 const markdownToHtml = (context) => {
 
@@ -19,7 +28,7 @@ const markdownToHtml = (context) => {
 
 /**
  * mixed article string in template html string
- * @param {String} context article string
+ * @param {String} context string formatted by previous middleware
  */
 const mixinHtml = (context) => getFilePromise(THEME_DIR('vibo-blog') + 'blog.html')
     .then((templateHtml) => templateHtml.replace('<!-- content -->', context))
@@ -42,14 +51,8 @@ const highlightCode = (context) => {
     }))
 }
 
-const highlight = (context) =>
-    context.replace(/=\S+?=/g, (highlightBlock) =>
-        `<span class="highlight">${highlightBlock.slice(1, code.length - 1)}</span>`
-    )
-
-// const sub
-
 module.exports = {
+    updateBlogInfo,
     markdownToHtml,
     mixinHtml,
     highlightCode,

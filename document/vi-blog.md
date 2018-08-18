@@ -2,7 +2,7 @@
 
 ===
 
-tags: 博客，blog，github.io, markdown2html,
+tags: 博客，blog，github.io, markdown2html,sss
 
 author: Ian
 
@@ -16,7 +16,7 @@ category：
 
 我\=要\=一个~博客~。
 
-本**地用typora**编辑markdown，由*工具*生成静态html，发布到github上，通过github.io/blog访问。
+本**地用typora**编辑markdown，由*工具*生成静态html，发布到github上，通过github.io/blog访问。change
 
 ### 初步想法
 
